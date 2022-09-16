@@ -79,15 +79,12 @@ int main()
             {
             case 1:// costo hospedaje
 
-                printf("Ingrese el costo: ");
-                scanf("%d", &costoHospedaje);
-                acumuladorHospedaje = acumuladorHospedaje + costoHospedaje;
+                menuCostos(&acumuladorHospedaje);
                 break;
             case 2:// costo comida
 
-                printf("Ingrese el costo: ");
-                scanf("%d", &costoDeComida);
-                acumuladorComida = acumuladorComida + costoDeComida;
+                menuCostos(&acumuladorComida);
+
                 break;
 
             case 3://costo transporte
@@ -96,9 +93,10 @@ int main()
                 scanf("%d", &costoDeTransporte);
                 acumuladorTransporte = acumuladorTransporte + costoDeTransporte;
                 break;
-                flagCosto = 1;
-            }
-            break;
+        }
+
+
+        break;
 
 
         case 2:// menu jugadores
@@ -110,7 +108,7 @@ int main()
             printf("3 Mediocampista\n");
             printf("4 Delantero\n");
             scanf("%d", &opcDos);
-            contadorJugadores++;
+           // contadorJugadores++;
             while(opcDos != 4 || opcDos != 3 || opcDos != 2 || opcDos != 1)
             {
 
@@ -124,17 +122,7 @@ int main()
                     else
                     {
                         contadorArquero++;
-                        printf("Elija la confederacion:\n");
-                        printf("1 UEFA\n");
-                        printf("2 CONMEBOL\n");
-                        printf("3 CONCACAF\n");
-                        printf("4 OFC\n");
-                        printf("5 AFC\n");
-                        printf("6 CAF\n");
-                        scanf("%d", &confederaciones);
-                        printf("Elija el numero de camiseta\n");
-                        scanf("%d", &numeroCamiseta);
-                         system("pause");
+                        menuJugadores();
 
                     }
                     break;
@@ -146,16 +134,7 @@ int main()
                     else
                     {
                         contadorDefensor++;
-                        printf("Elija la confederacion:\n");
-                        printf("1 UEFA\n");
-                        printf("2 CONMEBOL\n");
-                        printf("3 CONCACAF\n");
-                        printf("4 OFC\n");
-                        printf("5 AFC\n");
-                        printf("6 CAF\n");
-                        scanf("%d", &confederaciones);
-                        printf("Elija el numero de camiseta\n");
-                        scanf("%d", &numeroCamiseta);
+                        menuJugadores();
                     }
                     break;
                 case 3:
@@ -166,16 +145,9 @@ int main()
                     else
                     {
                         contadorMediocampo++;
-                        printf("Elija la confederacion:\n");
-                        printf("1 UEFA\n");
-                        printf("2 CONMEBOL\n");
-                        printf("3 CONCACAF\n");
-                        printf("4 OFC\n");
-                        printf("5 AFC\n");
-                        printf("6 CAF\n");
-                        scanf("%d", &confederaciones);
-                         printf("Elija el numero de camiseta\n");
-                        scanf("%d", &numeroCamiseta);
+                        menuJugadores();
+
+
                     }
                     break;
                 case 4:
@@ -208,15 +180,9 @@ int main()
 
 
         case 3:
-            if(flagCosto == 0 && flagJugadores == 0)
-            {
-                printf("No puede ingresar aqui si no pasa primero por las opciones 1 y 2");
-            }
-            else
-            {
+
                 printf("ingresaste al menu de control\n");
-                flagControl = 1;
-            }
+
 
             break;
         case 4:
@@ -226,7 +192,7 @@ int main()
             }
             else
             {
-                printf("Porcentaje UEFA  %.2f ", pUefa);
+                //contador de la confederacion * 100 / contador general
             }
             break;
         case 5:
