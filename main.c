@@ -233,6 +233,7 @@ int main()
                     case 6:
                         contCaf++;
                         break;
+
                     }
                     printf("Elija el numero de camiseta\nNumero: ");
                     scanf("%d", &numeroCamiseta);
