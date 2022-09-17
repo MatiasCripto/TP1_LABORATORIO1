@@ -11,7 +11,7 @@ void menuMantenimiento(int* op1);
 
 void menuCostos(int* pAcumCosto);
 
-void menuConfederaciones(int* opcion);
+int menuConfederaciones(int* opcion);
 
 int confirmarSalida(char* pSalida);
 

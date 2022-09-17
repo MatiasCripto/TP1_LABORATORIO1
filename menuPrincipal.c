@@ -25,10 +25,8 @@ void menu( int* pOpciones, int acumUno, int acumDos, int acumTres, int contUno, 
         fflush(stdin);
         scanf("%d", pOpciones);
     }
-
-
-
 }
+
 void menuMantenimiento(int* op1)
 {
     if(op1 != NULL)
@@ -53,23 +51,14 @@ void menuCostos(int* pAcumCosto)// input
     }
 }
 
-void menuConfederaciones(int* opcion)
+int menuConfederaciones(int* opcion)
 {
+    int resultado;
 
-    if(*opcion != NULL && *opcion >0 && *opcion <7)
+    resultado = 0;
+
+    if(opcion != NULL )
     {
-    printf("Elija la confederacion:\n\n");
-    printf("1- UEFA\n");
-    printf("2- CONMEBOL\n");
-    printf("3- CONCACAF\n");
-    printf("4- OFC\n");
-    printf("5- AFC\n");
-    printf("6- CAF\n");
-    scanf("%d", opcion);
-    }
-    else
-    {
-         printf("No es un parametro valido: \n");
         printf("Elija la confederacion:\n\n");
         printf("1- UEFA\n");
         printf("2- CONMEBOL\n");
@@ -77,11 +66,26 @@ void menuConfederaciones(int* opcion)
         printf("4- OFC\n");
         printf("5- AFC\n");
         printf("6- CAF\n");
-        fflush(stdin);
         scanf("%d", opcion);
-    }
 
-   }
+        while(*opcion != 1 && *opcion != 2 && *opcion != 3 && *opcion != 4 && *opcion != 5 && *opcion != 6)
+        {
+
+            printf("No es un parametro valido: \n");
+            printf("Elija la confederacion:\n\n");
+            printf("1- UEFA\n");
+            printf("2- CONMEBOL\n");
+            printf("3- CONCACAF\n");
+            printf("4- OFC\n");
+            printf("5- AFC\n");
+            printf("6- CAF\n");
+            fflush(stdin);
+            scanf("%d", opcion);
+        }
+        resultado = 1;
+    }
+    return resultado;
+}
 
 int confirmarSalida(char* pSalida)
 {
