@@ -10,8 +10,6 @@ int main()
     int opcUno;
     int opcDos;
     int opcTres;
-    // int costoDeComida;
-    int costoDeTransporte;
     int acumuladorComida;
     int acumuladorTransporte;
     int acumuladorHospedaje;
@@ -22,7 +20,7 @@ int main()
     int contadorMediocampo;
     int contadorDelantero;
     //  int contadorJugadores;
-    // int flagCosto;
+    //  int flagCosto;
     //  int flagJugadores;
     //  int flagControl;
     int contUefa;
@@ -31,12 +29,21 @@ int main()
     int contCaf;
     int contOfc;
     int contAfc;
-    //  float pUefa;
-    //  float pConmebol;
-    //  float pConcacaf;
-    //  float pCaf;
-    //  float pAfc;
+    int acumJugadores;
+    float pUefa;
+    float pConmebol;
+    float pConcacaf;
+    float pCaf;
+    float pAfc;
+    float pOfc;
 
+    pUefa = 0;
+    pConmebol = 0;
+    pConcacaf = 0;
+    pCaf = 0;
+    pAfc = 0;
+    pOfc = 0;
+    acumJugadores = 0;
     contAfc = 0;
     contCaf = 0;
     contConcacaf = 0;
@@ -47,9 +54,6 @@ int main()
     //  flagCosto = 0;
     //  flagJugadores = 0;
     //  contadorJugadores = 0;
-    // costoHospedaje = 0;
-    // costoDeComida = 0;
-    costoDeTransporte = 0;
     contadorArquero = 0;
     contadorDefensor = 0;
     contadorDelantero = 0;
@@ -78,9 +82,7 @@ int main()
                     menuCostos(&acumuladorComida);
                     break;
                 case 3://costo transporte
-                    printf("Ingrese el costo: ");
-                    scanf("%d", &costoDeTransporte);
-                    acumuladorTransporte = acumuladorTransporte + costoDeTransporte;
+                    menuCostos(&acumuladorTransporte);
                     break;
                 }
             }
@@ -91,7 +93,7 @@ int main()
             break;
         case 2:// menu jugadores
 
-            menuJugadores(&opcDos);
+            cargaJugadores(&opcDos);
 
             switch(opcDos)// carga de jugadores con hasta su maximo de ingresos
             {
@@ -103,8 +105,8 @@ int main()
                 else
                 {
                     contadorArquero++;
-                    menuConfederaciones(&opcTres);
-                    switch(opcTres)
+                    cargaConfederaciones(&opcTres);
+                 switch(opcTres)
                     {
                     case 1:
                         contUefa++;
@@ -125,8 +127,6 @@ int main()
                         contCaf++;
                         break;
                     }
-                    printf("Elija el numero de camiseta\nNumero: ");
-                    scanf("%d", &numeroCamiseta);
                 }
                 break;
             case 2:
@@ -137,7 +137,7 @@ int main()
                 else
                 {
                     contadorDefensor++;
-                    menuConfederaciones(&opcTres);
+                    cargaConfederaciones(&opcTres);
                       switch(opcTres)
                     {
                     case 1:
@@ -159,8 +159,6 @@ int main()
                         contCaf++;
                         break;
                     }
-                    printf("Elija el numero de camiseta\nNumero: ");
-                    scanf("%d", &numeroCamiseta);
                 }
                 break;
             case 3:
@@ -171,7 +169,7 @@ int main()
                 else
                 {
                     contadorMediocampo++;
-                    menuConfederaciones(&opcTres);
+                    cargaConfederaciones(&opcTres);
                       switch(opcTres)
                     {
                     case 1:
@@ -193,8 +191,6 @@ int main()
                         contCaf++;
                         break;
                     }
-                    printf("Elija el numero de camiseta\nNumero: ");
-                    scanf("%d", &numeroCamiseta);
                 }
                 break;
             case 4:
@@ -204,15 +200,8 @@ int main()
                 }
                 else
                 {
-                    contadorDelantero++;
-                    printf("Elija la confederacion:\n\n");
-                    printf("1- UEFA\n");
-                    printf("2- CONMEBOL\n");
-                    printf("3- CONCACAF\n");
-                    printf("4- OFC\n");
-                    printf("5- AFC\n");
-                    printf("6- CAF\n");
-                    scanf("%d", &confederaciones);
+                   contadorDelantero++;
+                   cargaConfederaciones(&opcTres);
                       switch(opcTres)
                     {
                     case 1:
@@ -233,22 +222,26 @@ int main()
                     case 6:
                         contCaf++;
                         break;
-
                     }
-                    printf("Elija el numero de camiseta\nNumero: ");
-                    scanf("%d", &numeroCamiseta);
                 }
                 break;
             default:
                 printf("no es una opcion valida\n");
                 break;
             }
+            acumJugadores = acumJugadores + opcTres;
             break;
         case 3:
+            dividir(&pUefa, acumJugadores, contUefa);
+            dividir(&pConmebol, acumJugadores, contConmebol);
+            dividir(&pConcacaf, acumJugadores, contConcacaf);
+            dividir(&pOfc, acumJugadores, contOfc);
+            dividir(&pAfc, acumJugadores, contAfc);
+            dividir(&pCaf, acumJugadores, contCaf);
             printf("ingresaste al menu de control\n");
             break;
         case 4:
-            printf(" porcentaje uefa: %d\n porcentaje conmebol: %d\n porcentaje concacaf: %d\n porcentaje Ofc: %d\n porcentaje Afc: %d\n porcentaje Caf: %d\n", contUefa, contConmebol, contConcacaf, contOfc, contAfc, contCaf);
+            printf(" Porcentaje uefa: %.2f\n Porcentaje conmebol: %.2f\n Porcentaje concacaf: %.2f\n Porcentaje Ofc: %.2f\n Porcentaje Afc: %.2f\n Porcentaje Caf: %.2f\n", pUefa, pConmebol, pConcacaf, pOfc, pAfc, pCaf);
             break;
         case 5:
             confirmarSalida(&salir);
@@ -258,8 +251,8 @@ int main()
             break;
         }
         system("pause");
-    }
-    while(salir == 'n');
+    }while(salir == 'n');
+
     return 0;
 
 }

@@ -22,7 +22,6 @@ void menu( int* pOpciones, int acumUno, int acumDos, int acumTres, int contUno, 
         printf("3. Realizar todos los calculos\n");
         printf("4. Informar todos los resultados\n");
         printf("5. Salir\n");
-        fflush(stdin);
         scanf("%d", pOpciones);
     }
 }
@@ -51,9 +50,10 @@ void menuCostos(int* pAcumCosto)// input
     }
 }
 
-int menuConfederaciones(int* opcion)
+int cargaConfederaciones(int* opcion)
 {
     int resultado;
+    int numeroCamiseta;
 
     resultado = 0;
 
@@ -79,9 +79,10 @@ int menuConfederaciones(int* opcion)
             printf("4- OFC\n");
             printf("5- AFC\n");
             printf("6- CAF\n");
-            fflush(stdin);
             scanf("%d", opcion);
         }
+      /*printf("Elija el numero de camiseta\nNumero: ");
+      scanf("%d", &numeroCamiseta);*/
         resultado = 1;
     }
     return resultado;
@@ -109,7 +110,7 @@ int confirmarSalida(char* pSalida)
     return todoOk;
 }
 
-void menuJugadores(int* pOpciones)
+void cargaJugadores(int* pOpciones)
 {
     if(pOpciones != NULL)
     {
@@ -124,6 +125,22 @@ void menuJugadores(int* pOpciones)
     }
 
 }
+int dividir(float* pResultado, int dividendo, int divisor)
+{
+    int todoOk = 0;
+
+    if(pResultado != NULL && divisor != 0)
+    {
+        *pResultado = (float) dividendo / divisor;
+        todoOk = 1;
+    }
+    return todoOk;
+}
+
+
+
+
+
 
 
 

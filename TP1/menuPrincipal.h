@@ -11,8 +11,14 @@ void menuMantenimiento(int* op1);
 
 void menuCostos(int* pAcumCosto);
 
-int menuConfederaciones(int* opcion);
+int cargaConfederaciones(int* opcion);
 
 int confirmarSalida(char* pSalida);
 
-void menuJugadores(int* pOpciones);
+void cargaJugadores(int* pOpciones);
+
+void confederacionesAcum (int* cont1, int* cont2, int* cont3, int* cont4, int* cont5, int* con6);
+
+int dividir(float* pResultado, int dividendo, int divisor);
+
+
