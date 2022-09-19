@@ -81,8 +81,8 @@ int cargaConfederaciones(int* opcion)
             printf("6- CAF\n");
             scanf("%d", opcion);
         }
-      /*printf("Elija el numero de camiseta\nNumero: ");
-      scanf("%d", &numeroCamiseta);*/
+      printf("Elija el numero de camiseta\nNumero: ");
+      scanf("%d", &numeroCamiseta);
         resultado = 1;
     }
     return resultado;

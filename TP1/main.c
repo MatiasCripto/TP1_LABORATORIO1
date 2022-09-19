@@ -19,10 +19,6 @@ int main()
     int contadorDefensor;
     int contadorMediocampo;
     int contadorDelantero;
-    //  int contadorJugadores;
-    //  int flagCosto;
-    //  int flagJugadores;
-    //  int flagControl;
     int contUefa;
     int contConmebol;
     int contConcacaf;
@@ -30,12 +26,20 @@ int main()
     int contOfc;
     int contAfc;
     int acumJugadores;
+    //  int contadorJugadores;
+    //  int flagCosto;
+    //  int flagJugadores;
+    //  int flagControl;
+    float costoManenimiento;
+    float totalConAumento;
+    float aumento;
     float pUefa;
     float pConmebol;
     float pConcacaf;
     float pCaf;
     float pAfc;
     float pOfc;
+
 
     pUefa = 0;
     pConmebol = 0;
@@ -61,6 +65,7 @@ int main()
     acumuladorComida = 0;
     acumuladorTransporte = 0;
     acumuladorHospedaje = 0;
+    costoManenimiento = 0;
 
     do
     {
@@ -229,7 +234,6 @@ int main()
                 printf("no es una opcion valida\n");
                 break;
             }
-            acumJugadores = acumJugadores + opcTres;
             break;
         case 3:
             dividir(&pUefa, acumJugadores, contUefa);
@@ -238,10 +242,21 @@ int main()
             dividir(&pOfc, acumJugadores, contOfc);
             dividir(&pAfc, acumJugadores, contAfc);
             dividir(&pCaf, acumJugadores, contCaf);
-            printf("ingresaste al menu de control\n");
+            costoManenimiento = acumuladorComida + acumuladorHospedaje + acumuladorTransporte;
+            aumento = costoManenimiento * 0.35;
+            totalConAumento = costoManenimiento + aumento;
+            printf("\n Los calculos se realizaron con exito.\n\n\n");
             break;
         case 4:
-            printf(" Porcentaje uefa: %.2f\n Porcentaje conmebol: %.2f\n Porcentaje concacaf: %.2f\n Porcentaje Ofc: %.2f\n Porcentaje Afc: %.2f\n Porcentaje Caf: %.2f\n", pUefa, pConmebol, pConcacaf, pOfc, pAfc, pCaf);
+            printf(" Promedio UEFA: %.2f\n Promedio CONMEBOL: %.2f\n Promedio CONCACAF: %.2f\n Promedio OFC: %.2f\n Promedio AFC: %.2f\n Promedio CAF: %.2f\n", pUefa, pConmebol, pConcacaf, pOfc, pAfc, pCaf);
+              if(pUefa > pConmebol && pUefa > pConcacaf && pUefa > pOfc && pUefa > pAfc && pUefa > pCaf)
+            {
+                printf("El costo de mantenimiento era de $%.2f y recibio un aumento de $%.2f su nuevo valor es de $%.2f\n ", costoManenimiento, aumento, totalConAumento);
+            }
+            else
+            {
+                printf("El costo de mantenimiento es de $%d\n", costoManenimiento);
+            }
             break;
         case 5:
             confirmarSalida(&salir);
@@ -251,6 +266,7 @@ int main()
             break;
         }
         system("pause");
+        acumJugadores = acumJugadores + opcTres;
     }while(salir == 'n');
 
     return 0;
