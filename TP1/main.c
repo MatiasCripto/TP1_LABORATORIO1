@@ -110,8 +110,8 @@ int main()
                 else
                 {
                     contadorArquero++;
-                    cargaConfederaciones(&opcTres);
-                 switch(opcTres)
+                    cargaConfederaciones(&confederaciones);
+                 switch(confederaciones)
                     {
                     case 1:
                         contUefa++;
@@ -142,8 +142,8 @@ int main()
                 else
                 {
                     contadorDefensor++;
-                    cargaConfederaciones(&opcTres);
-                      switch(opcTres)
+                    cargaConfederaciones(&confederaciones);
+                      switch(confederaciones)
                     {
                     case 1:
                         contUefa++;
@@ -174,8 +174,8 @@ int main()
                 else
                 {
                     contadorMediocampo++;
-                    cargaConfederaciones(&opcTres);
-                      switch(opcTres)
+                    cargaConfederaciones(&confederaciones);
+                      switch(confederaciones)
                     {
                     case 1:
                         contUefa++;
@@ -206,8 +206,8 @@ int main()
                 else
                 {
                    contadorDelantero++;
-                   cargaConfederaciones(&opcTres);
-                      switch(opcTres)
+                   cargaConfederaciones(&confederaciones);
+                      switch(confederaciones)
                     {
                     case 1:
                         contUefa++;
@@ -234,6 +234,7 @@ int main()
                 printf("no es una opcion valida\n");
                 break;
             }
+        acumJugadores = acumJugadores + confederaciones;
             break;
         case 3:
             dividir(&pUefa, acumJugadores, contUefa);
@@ -266,7 +267,6 @@ int main()
             break;
         }
         system("pause");
-        acumJugadores = acumJugadores + opcTres;
     }while(salir == 'n');
 
     return 0;
