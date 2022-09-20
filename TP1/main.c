@@ -103,14 +103,13 @@ int main()
             switch(opcDos)// carga de jugadores con hasta su maximo de ingresos
             {
             case 1:
-                if(contadorArquero >1)
+                if(contadorArquero ==2)
                 {
                     printf("El cupo de esa posicion ya esta cubierto\n");
                 }
                 else
                 {
-                    contadorArquero++;
-                    cargaConfederaciones(&confederaciones);
+                 cargaConfederaciones(&confederaciones);
                  switch(confederaciones)
                     {
                     case 1:
@@ -132,6 +131,8 @@ int main()
                         contCaf++;
                         break;
                     }
+                  contadorArquero++;
+                  acumJugadores++;
                 }
                 break;
             case 2:
@@ -141,8 +142,7 @@ int main()
                 }
                 else
                 {
-                    contadorDefensor++;
-                    cargaConfederaciones(&confederaciones);
+                      cargaConfederaciones(&confederaciones);
                       switch(confederaciones)
                     {
                     case 1:
@@ -164,6 +164,8 @@ int main()
                         contCaf++;
                         break;
                     }
+                contadorDefensor++;
+                acumJugadores++;
                 }
                 break;
             case 3:
@@ -173,8 +175,7 @@ int main()
                 }
                 else
                 {
-                    contadorMediocampo++;
-                    cargaConfederaciones(&confederaciones);
+                      cargaConfederaciones(&confederaciones);
                       switch(confederaciones)
                     {
                     case 1:
@@ -196,6 +197,8 @@ int main()
                         contCaf++;
                         break;
                     }
+                  contadorMediocampo++;
+                  acumJugadores++;
                 }
                 break;
             case 4:
@@ -205,7 +208,6 @@ int main()
                 }
                 else
                 {
-                   contadorDelantero++;
                    cargaConfederaciones(&confederaciones);
                       switch(confederaciones)
                     {
@@ -228,21 +230,22 @@ int main()
                         contCaf++;
                         break;
                     }
+                    acumJugadores++;
+                    contadorDelantero++;
                 }
                 break;
             default:
                 printf("no es una opcion valida\n");
                 break;
             }
-        acumJugadores = acumJugadores + confederaciones;
             break;
         case 3:
-            dividir(&pUefa, acumJugadores, contUefa);
-            dividir(&pConmebol, acumJugadores, contConmebol);
-            dividir(&pConcacaf, acumJugadores, contConcacaf);
-            dividir(&pOfc, acumJugadores, contOfc);
-            dividir(&pAfc, acumJugadores, contAfc);
-            dividir(&pCaf, acumJugadores, contCaf);
+            dividir(&pUefa, contUefa, acumJugadores );
+            dividir(&pConmebol, contConmebol, acumJugadores);
+            dividir(&pConcacaf, contConcacaf, acumJugadores);
+            dividir(&pOfc, contOfc, acumJugadores);
+            dividir(&pAfc, , contAfc, acumJugadores);
+            dividir(&pCaf, , contCaf, acumJugadores);
             costoManenimiento = acumuladorComida + acumuladorHospedaje + acumuladorTransporte;
             aumento = costoManenimiento * 0.35;
             totalConAumento = costoManenimiento + aumento;
@@ -256,7 +259,8 @@ int main()
             }
             else
             {
-                printf("El costo de mantenimiento es de $%d\n", costoManenimiento);
+                //if(costoManenimiento>0)
+                printf("El costo de mantenimiento es de $%.2f\n", costoManenimiento);
             }
             break;
         case 5:
