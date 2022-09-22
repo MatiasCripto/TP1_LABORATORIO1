@@ -1,6 +1,12 @@
+/*
+ * mibiblioteca.c
+ *
+ *  Created on: 22 sep. 2022
+ *      Author: USER
+ */
 #include <stdio.h>
 #include <stdlib.h>
-#include "menuPrincipal.h"
+#include "mibiblioteca.h"
 #include <ctype.h>
 
 void menu( int* pOpciones, int acumUno, int acumDos, int acumTres, int contUno, int contDos, int contTres, int contCuatro)
@@ -137,11 +143,34 @@ int dividir(float* pResultado, int dividendo, int divisor)
     return todoOk;
 }
 
+/*void contadorConfederaciones(int* pConfederaciones, int contador1, int contador2, int contador3, int contador4, int contador5, int contador6)
+{
+    if(pConfederaciones != NULL)
+    {
 
-
-
-
-
+    switch(*pConfederaciones)
+                    {
+                    case 1:
+                        contador1;
+                        break;
+                    case 2:
+                        contador2;
+                        break;
+                    case 3:
+                        contador3;
+                        break;
+                    case 4:
+                        contador4++;
+                        break;
+                    case 5:
+                        contador5++;
+                        break;
+                    case 6:
+                        contador6++;
+                        break;
+                    }
+    }
+}*/
 
 
 
