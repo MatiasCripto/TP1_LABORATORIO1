@@ -15,7 +15,7 @@
 int main(void)
 {
 	setbuf(stdout, NULL);
-	char salir = 'n';
+		char salir = 'n';
 	    int opciones;
 	    int opcMantenimiento;
 	    int opcJugadores;
@@ -103,8 +103,7 @@ int main(void)
 	                printf("La opcion es incorrecta\n");
 	            }
 	            break;
-
-	            case 2:// menu jugadores
+	        case 2:// menu jugadores
 	            if(flagCosto == 1)
 	            {
 	                flagJugadores = 1;
@@ -113,6 +112,7 @@ int main(void)
 	                switch(opcJugadores)// carga de jugadores con hasta su maximo de ingresos
 	                {
 	                case 1:
+
 	                    if(contadorArquero ==2)
 	                    {
 	                        printf("El cupo de esa posicion ya esta cubierto\n");
@@ -120,27 +120,6 @@ int main(void)
 	                    else
 	                    {
 	                        cargaConfederaciones(&confederaciones);
-	                        switch(confederaciones)
-	                        {
-	                        case 1:
-	                            contUefa++;
-	                            break;
-	                        case 2:
-	                            contConmebol++;
-	                            break;
-	                        case 3:
-	                            contConcacaf++;
-	                            break;
-	                        case 4:
-	                            contOfc++;
-	                            break;
-	                        case 5:
-	                            contAfc++;
-	                            break;
-	                        case 6:
-	                            contCaf++;
-	                            break;
-	                        }
 	                        contadorArquero++;
 	                        acumJugadores++;
 	                    }
@@ -153,27 +132,6 @@ int main(void)
 	                    else
 	                    {
 	                        cargaConfederaciones(&confederaciones);
-	                        switch(confederaciones)
-	                        {
-	                        case 1:
-	                            contUefa++;
-	                            break;
-	                        case 2:
-	                            contConmebol++;
-	                            break;
-	                        case 3:
-	                            contConcacaf++;
-	                            break;
-	                        case 4:
-	                            contOfc++;
-	                            break;
-	                        case 5:
-	                            contAfc++;
-	                            break;
-	                        case 6:
-	                            contCaf++;
-	                            break;
-	                        }
 	                        contadorDefensor++;
 	                        acumJugadores++;
 	                    }
@@ -186,28 +144,6 @@ int main(void)
 	                    else
 	                    {
 	                        cargaConfederaciones(&confederaciones);
-	                        //contadorConfederaciones(&confederaciones, contUefa, contConmebol, contConcacaf, contOfc, contAfc, contCaf);
-	                        switch(confederaciones)
-	                        {
-	                        case 1:
-	                            contUefa++;
-	                            break;
-	                        case 2:
-	                            contConmebol++;
-	                            break;
-	                        case 3:
-	                            contConcacaf++;
-	                            break;
-	                        case 4:
-	                            contOfc++;
-	                            break;
-	                        case 5:
-	                            contAfc++;
-	                            break;
-	                        case 6:
-	                            contCaf++;
-	                            break;
-	                        }
 	                        contadorMediocampo++;
 	                        acumJugadores++;
 	                    }
@@ -220,28 +156,6 @@ int main(void)
 	                    else
 	                    {
 	                        cargaConfederaciones(&confederaciones);
-	                        //contadorConfederaciones(&confederaciones, contUefa, contConmebol, contConcacaf, contOfc, contAfc, contCaf);
-	                        switch(confederaciones)
-	                        {
-	                        case 1:
-	                            contUefa++;
-	                            break;
-	                        case 2:
-	                            contConmebol++;
-	                            break;
-	                        case 3:
-	                            contConcacaf++;
-	                            break;
-	                        case 4:
-	                            contOfc++;
-	                            break;
-	                        case 5:
-	                            contAfc++;
-	                            break;
-	                        case 6:
-	                            contCaf++;
-	                            break;
-	                        }
 	                        acumJugadores++;
 	                        contadorDelantero++;
 	                    }
@@ -250,50 +164,69 @@ int main(void)
 	                    printf("no es una opcion valida\n");
 	                    break;
 	                }
+	                switch(confederaciones)
+	                {
+	                case 1:
+	                    contUefa++;
+	                    break;
+	                case 2:
+	                    contConmebol++;
+	                    break;
+	                case 3:
+	                    contConcacaf++;
+	                    break;
+	                case 4:
+	                    contOfc++;
+	                    break;
+	                case 5:
+	                    contAfc++;
+	                    break;
+	                case 6:
+	                    contCaf++;
+	                    break;
+	                }
 	            }
 	            else
 	            {
-	                printf("Primero debe ingresar en la opcion 1 para poder entrar aqui");
+	                printf("Primero debe ingresar en la opcion 1 para poder entrar aqui\n");
 	            }
-
 	            break;
-
 	        case 3:
 	            if(flagJugadores == 1)
 	            {
-	            flagCalculos = 1;
-	            dividir(&pUefa, contUefa, acumJugadores );
-	            dividir(&pConmebol, contConmebol, acumJugadores);
-	            dividir(&pConcacaf, contConcacaf, acumJugadores);
-	            dividir(&pOfc, contOfc, acumJugadores);
-	            dividir(&pAfc, contAfc, acumJugadores);
-	            dividir(&pCaf, contCaf, acumJugadores);
-	            costoMantenimiento = acumuladorComida + acumuladorHospedaje + acumuladorTransporte;
-	            aumento = costoMantenimiento * 0.35;
-	            totalConAumento = costoMantenimiento + aumento;
-	            printf("\n Los calculos se realizaron con exito.\n\n\n");
+	                flagCalculos = 1;
+	                dividir(&pUefa, contUefa, acumJugadores );
+	                dividir(&pConmebol, contConmebol, acumJugadores);
+	                dividir(&pConcacaf, contConcacaf, acumJugadores);
+	                dividir(&pOfc, contOfc, acumJugadores);
+	                dividir(&pAfc, contAfc, acumJugadores);
+	                dividir(&pCaf, contCaf, acumJugadores);
+	                costoMantenimiento = acumuladorComida + acumuladorHospedaje + acumuladorTransporte;
+	                aumento = costoMantenimiento * 0.35;
+	                totalConAumento = costoMantenimiento + aumento;
+	                printf("\n Los calculos se realizaron con exito.\n\n\n");
 	            }
 	            else
 	            {
-	                printf("Primero tiene que pasar por las opciones 1 y 2 para ingresar aqui");
+	                printf("Primero tiene que pasar por las opciones 1 y 2 para ingresar aqui\n");
 	            }
 	            break;
 	        case 4:
 	            if(flagCalculos == 1)
 	            {
-	            printf(" Promedio UEFA: %.2f\n Promedio CONMEBOL: %.2f\n Promedio CONCACAF: %.2f\n Promedio OFC: %.2f\n Promedio AFC: %.2f\n Promedio CAF: %.2f\n", pUefa, pConmebol, pConcacaf, pOfc, pAfc, pCaf);
-	            if(pUefa > pConmebol && pUefa > pConcacaf && pUefa > pOfc && pUefa > pAfc && pUefa > pCaf)
-	            {
-	                printf("El costo de mantenimiento era de $%.2f y recibio un aumento de $%.2f su nuevo valor es de $%.2f\n ", costoMantenimiento, aumento, totalConAumento);
+	                printf(" Promedio UEFA: %.2f\n Promedio CONMEBOL: %.2f\n Promedio CONCACAF: %.2f\n Promedio OFC: %.2f\n Promedio AFC: %.2f\n Promedio CAF: %.2f\n", pUefa, pConmebol, pConcacaf, pOfc, pAfc, pCaf);
+	                if(pUefa > pConmebol && pUefa > pConcacaf && pUefa > pOfc && pUefa > pAfc && pUefa > pCaf)
+	                {
+	                    printf("El costo de mantenimiento era de $%.2f y recibio un aumento de $%.2f su nuevo valor es de $%.2f\n ", costoMantenimiento, aumento, totalConAumento);
+	                }
+	                else
+	                {
+	                    printf("El costo de mantenimiento es de $%.2f\n", costoMantenimiento);
+	                }
 	            }
 	            else
 	            {
-	                printf("El costo de mantenimiento es de $%.2f\n", costoMantenimiento);
-	            }
-	            }
-	            else
-	            {
-	                printf("Primero debe pasar pos las opciones 1, 2 y 3 para poder ingresar aqui");
+	                printf("Primero debe pasar pos las opciones 1, 2 y 3 para poder ingresar aqui\n");
 	            }
 	            flagCosto = 0;
 	            flagCalculos = 0;
@@ -303,7 +236,7 @@ int main(void)
 	            confirmarSalida(&salir);
 	            break;
 	        default:
-	            printf("no es una opcion valida");
+	            printf("no es una opcion valida\n");
 	            break;
 	        }
 	        system("pause");
