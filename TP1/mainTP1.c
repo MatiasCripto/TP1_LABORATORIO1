@@ -11,11 +11,12 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "mibiblioteca.h"
+#include "input.h"
 
 int main(void)
 {
 	setbuf(stdout, NULL);
-		char salir = 'n';
+	char salir = 'n';
 	    int opciones;
 	    int opcMantenimiento;
 	    int opcJugadores;
@@ -82,8 +83,6 @@ int main(void)
 	        {
 	        case 1:// menu de mantenimiento
 	            menuMantenimiento(&opcMantenimiento);
-	            if(opcMantenimiento == 1 || opcMantenimiento ==2 || opcMantenimiento == 3)
-	            {
 	                flagCosto = 1;
 	                switch(opcMantenimiento)
 	                {
@@ -96,12 +95,10 @@ int main(void)
 	                case 3://costo transporte
 	                    menuCostos(&acumuladorTransporte);
 	                    break;
+	                default:
+	                    printf("La opcion es incorrecta\n");
+	                    break;
 	                }
-	            }
-	            else
-	            {
-	                printf("La opcion es incorrecta\n");
-	            }
 	            break;
 	        case 2:// menu jugadores
 	            if(flagCosto == 1)
@@ -125,7 +122,7 @@ int main(void)
 	                    }
 	                    break;
 	                case 2:
-	                    if(contadorDefensor >7)
+	                    if(contadorDefensor ==8)
 	                    {
 	                        printf("El cupo de esa posicion ya esta cubierto\n");
 	                    }
@@ -137,7 +134,7 @@ int main(void)
 	                    }
 	                    break;
 	                case 3:
-	                    if(contadorMediocampo >7)
+	                    if(contadorMediocampo ==8)
 	                    {
 	                        printf("El cupo de esa posicion ya esta cubierto\n");
 	                    }
@@ -149,7 +146,7 @@ int main(void)
 	                    }
 	                    break;
 	                case 4:
-	                    if(contadorDelantero >3)
+	                    if(contadorDelantero ==4)
 	                    {
 	                        printf("El cupo de esa posicion ya esta cubierto\n");
 	                    }
@@ -238,11 +235,10 @@ int main(void)
 	        default:
 	            printf("no es una opcion valida\n");
 	            break;
+
 	        }
 	        system("pause");
-	    }
-	    while(salir == 'n');
-
+	    }while(salir == 'n');
 
 	return 0;
 }

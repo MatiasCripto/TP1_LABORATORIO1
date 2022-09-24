@@ -35,13 +35,7 @@
  */
 void menu( int* pOpciones,int acumUno, int acumDos, int acumTres, int contUno, int contDos, int contTres, int contCuatro);
 
-/** \brief submenu de gastos de mantenimiento
- *
- * \param op1 int* almacena la opcion ingresada
- * \return void
- *
- */
-void menuMantenimiento(int* op1);
+
 
 /** \brief recibe el costo y lo acumula
  *
@@ -51,13 +45,7 @@ void menuMantenimiento(int* op1);
  */
 void menuCostos(int* pAcumCosto);
 
-/** \brief menu de carga de confederaciones
- *
- * \param opcion int* almacena la opcion ingresada
- * \return int retorna 1 o 0
- *
- */
-int cargaConfederaciones(int* opcion);
+
 
 /** \brief valida a el caracter 's' para que sea la unica opcion que se debe ingresar si se quiere salir del programa
  *
@@ -67,13 +55,7 @@ int cargaConfederaciones(int* opcion);
  */
 int confirmarSalida(char* pSalida);
 
-/** \brief menu para la carga de las distintas posiciones de los jugadores
- *
- * \param pOpciones int* almacena la opcion ingresada
- * \return void
- *
- */
-void cargaJugadores(int* pOpciones);
+
 
 /** \brief divide dos numeros validando que uno no sea 0
  *

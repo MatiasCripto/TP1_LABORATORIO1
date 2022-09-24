@@ -7,7 +7,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "mibiblioteca.h"
+#include "input.h"
 #include <ctype.h>
+#include <string.h>
 
 void menu( int* pOpciones, int acumUno, int acumDos, int acumTres, int contUno, int contDos, int contTres, int contCuatro)
 {
@@ -28,70 +30,30 @@ void menu( int* pOpciones, int acumUno, int acumDos, int acumTres, int contUno, 
         printf("3. Realizar todos los calculos\n");
         printf("4. Informar todos los resultados\n");
         printf("5. Salir\n");
+        fflush(stdin);
         scanf("%d", pOpciones);
-    }
-}
-
-void menuMantenimiento(int* op1)
-{
-    if(op1 != NULL)
-    {
-        printf("ingresaste al menu de mantenimiento, elija una opcion:\n\n\n\n");
-        printf("1- costo de hospedaje\n");
-        printf("2- costo de comida\n");
-        printf("3- costo de transporte\n");
-        scanf("%d", op1);
     }
 }
 
 void menuCostos(int* pAcumCosto)// input
 {
+    int todoOk;
     int costos;
 
     if(pAcumCosto != NULL)
     {
         printf("Ingrese el costo: ");
-        scanf("%d", &costos);
-        *pAcumCosto = *pAcumCosto + costos;
-    }
-}
-
-int cargaConfederaciones(int* opcion)
-{
-    int resultado;
-    int numeroCamiseta;
-
-    resultado = 0;
-
-    if(opcion != NULL )
-    {
-        printf("Elija la confederacion:\n\n");
-        printf("1- UEFA\n");
-        printf("2- CONMEBOL\n");
-        printf("3- CONCACAF\n");
-        printf("4- OFC\n");
-        printf("5- AFC\n");
-        printf("6- CAF\n");
-        scanf("%d", opcion);
-
-        while(*opcion != 1 && *opcion != 2 && *opcion != 3 && *opcion != 4 && *opcion != 5 && *opcion != 6)
+        fflush(stdin);
+        todoOk = scanf("%d", &costos);
+        if(todoOk == 1)
         {
-
-            printf("No es un parametro valido: \n");
-            printf("Elija la confederacion:\n\n");
-            printf("1- UEFA\n");
-            printf("2- CONMEBOL\n");
-            printf("3- CONCACAF\n");
-            printf("4- OFC\n");
-            printf("5- AFC\n");
-            printf("6- CAF\n");
-            scanf("%d", opcion);
+        *pAcumCosto = *pAcumCosto + costos;
         }
-      printf("Elija el numero de camiseta\nNumero: ");
-      scanf("%d", &numeroCamiseta);
-        resultado = 1;
+        else
+        {
+            printf("No es una opcion valida\n");
+        }
     }
-    return resultado;
 }
 
 int confirmarSalida(char* pSalida)
@@ -116,21 +78,7 @@ int confirmarSalida(char* pSalida)
     return todoOk;
 }
 
-void cargaJugadores(int* pOpciones)
-{
-    if(pOpciones != NULL)
-    {
-        printf("Ingresaste al menu de carga de jugadores.\n\n");
-        printf("Elija la posicion: \n\n");
-        printf("1- Arquero\n");
-        printf("2- Defensor\n");
-        printf("3- Mediocampista\n");
-        printf("4- Delantero\n");
-        scanf("%d", pOpciones);
-        system("cls");
-    }
 
-}
 int dividir(float* pResultado, int dividendo, int divisor)
 {
     int todoOk = 0;
@@ -142,6 +90,9 @@ int dividir(float* pResultado, int dividendo, int divisor)
     }
     return todoOk;
 }
+
+
+
 
 
 
