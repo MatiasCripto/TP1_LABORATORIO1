@@ -1,5 +1,7 @@
 # depslib dependency file v1.0
-1665696680 source:c:\users\user\desktop\programasion 1\programacin 1 en c\tp-2-futbol\main.c
+1666030529 source:c:\users\user\desktop\programasion 1\programacin 1 en c\tp-2-futbol\main.c
 	<stdio.h>
 	<stdlib.h>
+	<string.h>
+	<ctype.h>
 
