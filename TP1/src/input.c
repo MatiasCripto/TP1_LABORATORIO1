@@ -32,7 +32,7 @@ int cargaConfederaciones(int* opcion)
 
     resultado = 0;
 
-    if(opcion != NULL)
+    if(opcion != NULL )
     {
         printf("Elija la confederacion:\n\n");
         printf("1- UEFA\n");
@@ -43,11 +43,8 @@ int cargaConfederaciones(int* opcion)
         printf("6- CAF\n");
         fflush(stdin);
         scanf("%d", opcion);
-        printf("Elija el numero de camiseta\nNumero: ");
-        fflush(stdin);
-        scanf("%d", &numeroCamiseta);
 
-        while(*opcion != 1 && *opcion != 2 && *opcion != 3 && *opcion != 4 && *opcion != 5 && *opcion != 6 && (numeroCamiseta <0 ) )
+        while(*opcion != 1 && *opcion != 2 && *opcion != 3 && *opcion != 4 && *opcion != 5 && *opcion != 6)
         {
 
             printf("No es un parametro valido: \n");
@@ -60,11 +57,10 @@ int cargaConfederaciones(int* opcion)
             printf("6- CAF\n");
             fflush(stdin);
             scanf("%d", opcion);
-			printf("Elija el numero de camiseta\nNumero: ");
-			fflush(stdin);
-			scanf("%d", &numeroCamiseta);
         }
-
+        printf("Elija el numero de camiseta\nNumero: ");
+        fflush(stdin);
+        scanf("%d", &numeroCamiseta);
         resultado = 1;
     }
     return resultado;
